@@ -12,9 +12,10 @@ F:\MySoftwareRepos\DnDCreatureVariator\bin\Debug\DungeonsAndDragonsCreatureVaria
 F:\MySoftwareRepos\DnDCreatureVariator\bin\Debug\DungeonsAndDragonsCreatureVariator.exe
 F:\MySoftwareRepos\DnDCreatureVariator\bin\Debug\DungeonsAndDragonsCreatureVariator.pdb
 F:\MySoftwareRepos\DnDCreatureVariator\obj\Debug\DungeonsAndDragonsCreatureVariator.csproj.AssemblyReference.cache
-F:\MySoftwareRepos\DnDCreatureVariator\obj\Debug\DungeonsAndDragonsCreatureVariator.Form1.resources
 F:\MySoftwareRepos\DnDCreatureVariator\obj\Debug\DungeonsAndDragonsCreatureVariator.Properties.Resources.resources
 F:\MySoftwareRepos\DnDCreatureVariator\obj\Debug\DungeonsAndDragonsCreatureVariator.csproj.GenerateResource.cache
 F:\MySoftwareRepos\DnDCreatureVariator\obj\Debug\DungeonsAndDragonsCreatureVariator.csproj.CoreCompileInputs.cache
 F:\MySoftwareRepos\DnDCreatureVariator\obj\Debug\DungeonsAndDragonsCreatureVariator.exe
 F:\MySoftwareRepos\DnDCreatureVariator\obj\Debug\DungeonsAndDragonsCreatureVariator.pdb
+F:\MySoftwareRepos\DnDCreatureVariator\obj\Debug\DungeonsAndDragonsCreatureVariator.csproj.ResolveComReference.cache
+F:\MySoftwareRepos\DnDCreatureVariator\obj\Debug\DungeonsAndDragonsCreatureVariator.mainWindow.resources
