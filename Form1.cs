@@ -8,50 +8,73 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-
+using System.Xml;
 namespace DungeonsAndDragonsCreatureVariator
 {
     public partial class mainWindow : Form
     {
-        Workbook wbook;
-        Worksheet worksheet;
-        Range excelRange;
-        int selectedRow = 2;
+
         public mainWindow()
         {
             InitializeComponent();
+        }
+
+        private void LoadCreature(string fileName)
+        {
+            XmlDocument creatureFile = new XmlDocument();
+            creatureFile.Load(fileName);
+
+            //Get Name of creature
+            XmlNode xmlNode = creatureFile.SelectSingleNode("Name");
+            creatureName.Text = xmlNode.InnerText;
+        }
+
+        private void SaveCreature(string fileName)
+        {
+            //Check to see if the file type is XML. If not, make it!
+            if (!fileName.EndsWith(".xml"))
+            {
+                fileName += ".xml";
+            }
+
+            XmlTextWriter xmlTextWriter = new XmlTextWriter(fileName, System.Text.Encoding.UTF8);
+            xmlTextWriter.Formatting = Formatting.Indented;
+            xmlTextWriter.WriteStartDocument();
+
+            xmlTextWriter.WriteStartElement("Name");
+            xmlTextWriter.WriteElementString("Name", creatureName.Text);
+            xmlTextWriter.WriteEndElement();
+            xmlTextWriter.WriteEndDocument();
+            xmlTextWriter.Flush();
+            xmlTextWriter.Close();
         }
 
         private void openCreatureFile_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
-
-                wbook = excel.Workbooks.Open(openFileDialog1.FileName,
-                      Type.Missing, Type.Missing, Type.Missing,
-                      Type.Missing, Type.Missing, Type.Missing,
-                      Type.Missing, Type.Missing, Type.Missing,
-                      Type.Missing, Type.Missing, Type.Missing,
-                      Type.Missing, Type.Missing);
-                worksheet = wbook.Sheets[1];
-                excelRange = worksheet.UsedRange;
-                selectedCreature.Text = excelRange.Cells[selectedRow, 3].Value.ToString();
+                //Read the creature file
+                LoadCreature(openFileDialog1.FileName);
             }
 
         }
 
         private void nextCreatureButton_Click(object sender, EventArgs e)
         {
-            if(excelRange != null)
-                selectedCreature.Text = excelRange.Cells[++selectedRow, 3].Value.ToString();
+            
         }
 
         private void previousCreatureButton_Click(object sender, EventArgs e)
         {
-            if (excelRange != null)
-                selectedCreature.Text = excelRange.Cells[--selectedRow, 3].Value.ToString();
+            
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                SaveCreature(saveFileDialog1.FileName);
+            }
         }
     }
 }
