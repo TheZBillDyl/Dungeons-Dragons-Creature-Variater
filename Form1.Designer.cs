@@ -37,7 +37,6 @@ namespace DungeonsAndDragonsCreatureVariator
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.strengthStat = new System.Windows.Forms.TextBox();
             this.dexterityStat = new System.Windows.Forms.TextBox();
             this.constitutionStat = new System.Windows.Forms.TextBox();
             this.intelligenceStat = new System.Windows.Forms.TextBox();
@@ -49,6 +48,7 @@ namespace DungeonsAndDragonsCreatureVariator
             this.intMod = new System.Windows.Forms.Label();
             this.wisMod = new System.Windows.Forms.Label();
             this.charMod = new System.Windows.Forms.Label();
+            this.strengthStat = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -154,19 +154,14 @@ namespace DungeonsAndDragonsCreatureVariator
             this.tableLayoutPanel1.Size = new System.Drawing.Size(397, 100);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
-            // strengthStat
-            // 
-            this.strengthStat.Location = new System.Drawing.Point(4, 4);
-            this.strengthStat.Name = "strengthStat";
-            this.strengthStat.Size = new System.Drawing.Size(59, 20);
-            this.strengthStat.TabIndex = 0;
-            // 
             // dexterityStat
             // 
             this.dexterityStat.Location = new System.Drawing.Point(70, 4);
             this.dexterityStat.Name = "dexterityStat";
             this.dexterityStat.Size = new System.Drawing.Size(59, 20);
             this.dexterityStat.TabIndex = 1;
+            this.dexterityStat.Text = "10";
+            this.dexterityStat.TextChanged += new System.EventHandler(this.dexterityStat_TextChanged);
             // 
             // constitutionStat
             // 
@@ -174,6 +169,8 @@ namespace DungeonsAndDragonsCreatureVariator
             this.constitutionStat.Name = "constitutionStat";
             this.constitutionStat.Size = new System.Drawing.Size(59, 20);
             this.constitutionStat.TabIndex = 2;
+            this.constitutionStat.Text = "10";
+            this.constitutionStat.TextChanged += new System.EventHandler(this.constitutionStat_TextChanged);
             // 
             // intelligenceStat
             // 
@@ -181,6 +178,8 @@ namespace DungeonsAndDragonsCreatureVariator
             this.intelligenceStat.Name = "intelligenceStat";
             this.intelligenceStat.Size = new System.Drawing.Size(59, 20);
             this.intelligenceStat.TabIndex = 3;
+            this.intelligenceStat.Text = "10";
+            this.intelligenceStat.TextChanged += new System.EventHandler(this.intelligenceStat_TextChanged);
             // 
             // wisdomStat
             // 
@@ -188,6 +187,8 @@ namespace DungeonsAndDragonsCreatureVariator
             this.wisdomStat.Name = "wisdomStat";
             this.wisdomStat.Size = new System.Drawing.Size(59, 20);
             this.wisdomStat.TabIndex = 4;
+            this.wisdomStat.Text = "10";
+            this.wisdomStat.TextChanged += new System.EventHandler(this.wisdomStat_TextChanged);
             // 
             // charismaStat
             // 
@@ -195,6 +196,8 @@ namespace DungeonsAndDragonsCreatureVariator
             this.charismaStat.Name = "charismaStat";
             this.charismaStat.Size = new System.Drawing.Size(59, 20);
             this.charismaStat.TabIndex = 5;
+            this.charismaStat.Text = "10";
+            this.charismaStat.TextChanged += new System.EventHandler(this.charismaStat_TextChanged);
             // 
             // strMod
             // 
@@ -249,6 +252,15 @@ namespace DungeonsAndDragonsCreatureVariator
             this.charMod.Size = new System.Drawing.Size(13, 13);
             this.charMod.TabIndex = 11;
             this.charMod.Text = "0";
+            // 
+            // strengthStat
+            // 
+            this.strengthStat.Location = new System.Drawing.Point(4, 4);
+            this.strengthStat.Name = "strengthStat";
+            this.strengthStat.Size = new System.Drawing.Size(59, 20);
+            this.strengthStat.TabIndex = 0;
+            this.strengthStat.Text = "10";
+            this.strengthStat.TextChanged += new System.EventHandler(this.strengthStat_TextChanged);
             // 
             // label7
             // 
