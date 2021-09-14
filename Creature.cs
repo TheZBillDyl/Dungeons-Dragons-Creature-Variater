@@ -2,6 +2,10 @@
 
 public class Creature
 {
+	/*
+	 * Might remove the Creature class. May not need
+	 * 
+	 */
 	public string Name {  get; set; }
 	public int AC {  get; set; }
 	public int Health {  get; set; }
@@ -31,6 +35,7 @@ public class Weapon
 	public string Name {  get; set; }
 	public int DamageDie {  get; set; }
 	public int DamageDieAmount { get; set; }
+	public int Modifier {  get; set; }
 }
 
 public class Armor

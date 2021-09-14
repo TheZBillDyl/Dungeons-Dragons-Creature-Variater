@@ -9,8 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Windows;
+
 namespace DungeonsAndDragonsCreatureVariator
-{
+{ 
     public partial class mainWindow : Form
     {
 
@@ -48,12 +50,6 @@ namespace DungeonsAndDragonsCreatureVariator
 
         private void SaveCreature(string fileName)
         {
-            //Check to see if the file type is XML. If not, make it!
-            if (!fileName.EndsWith(".xml"))
-            {
-                fileName += ".xml";
-            }
-
             XmlTextWriter xmlTextWriter = new XmlTextWriter(fileName, Encoding.UTF8);
             xmlTextWriter.Formatting = Formatting.Indented;
             xmlTextWriter.WriteStartDocument();
@@ -112,6 +108,7 @@ namespace DungeonsAndDragonsCreatureVariator
         private void dexterityStat_TextChanged(object sender, EventArgs e)
         {
             ChangeStatBox(dexterityStat, dexMod);
+            acValue.Text = (10 + int.Parse(dexMod.Text)).ToString();
         }
 
         private void constitutionStat_TextChanged(object sender, EventArgs e)
@@ -156,6 +153,10 @@ namespace DungeonsAndDragonsCreatureVariator
             label.Text = num.ToString();
         }
 
-        
+        private void createWeapon_Click(object sender, EventArgs e)
+        {
+            WeaponCreator weaponCreator = new WeaponCreator();
+            weaponCreator.Show();
+        }
     }
 }

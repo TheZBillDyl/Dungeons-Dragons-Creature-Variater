@@ -42,13 +42,13 @@ namespace DungeonsAndDragonsCreatureVariator
             this.intelligenceStat = new System.Windows.Forms.TextBox();
             this.wisdomStat = new System.Windows.Forms.TextBox();
             this.charismaStat = new System.Windows.Forms.TextBox();
-            this.strMod = new System.Windows.Forms.Label();
             this.dexMod = new System.Windows.Forms.Label();
             this.conMod = new System.Windows.Forms.Label();
             this.intMod = new System.Windows.Forms.Label();
             this.wisMod = new System.Windows.Forms.Label();
             this.charMod = new System.Windows.Forms.Label();
             this.strengthStat = new System.Windows.Forms.TextBox();
+            this.strMod = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,8 +56,22 @@ namespace DungeonsAndDragonsCreatureVariator
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.creatureName = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.acValue = new System.Windows.Forms.Label();
+            this.ACLabel = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.hitDice = new System.Windows.Forms.Label();
+            this.healthValue = new System.Windows.Forms.Label();
+            this.healthLabel = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.createWeapon = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -117,6 +131,7 @@ namespace DungeonsAndDragonsCreatureVariator
             this.flowLayoutPanel1.Controls.Add(this.saveButton);
             this.flowLayoutPanel1.Controls.Add(this.nextCreatureButton);
             this.flowLayoutPanel1.Controls.Add(this.previousCreatureButton);
+            this.flowLayoutPanel1.Controls.Add(this.createWeapon);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 500);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -125,7 +140,7 @@ namespace DungeonsAndDragonsCreatureVariator
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
             this.tableLayoutPanel1.ColumnCount = 6;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -138,80 +153,70 @@ namespace DungeonsAndDragonsCreatureVariator
             this.tableLayoutPanel1.Controls.Add(this.intelligenceStat, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.wisdomStat, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.charismaStat, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.strMod, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.dexMod, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.conMod, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.intMod, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.wisMod, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.charMod, 5, 1);
             this.tableLayoutPanel1.Controls.Add(this.strengthStat, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.strMod, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(83, 104);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(397, 100);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.38461F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.61538F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(397, 50);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // dexterityStat
             // 
-            this.dexterityStat.Location = new System.Drawing.Point(70, 4);
+            this.dexterityStat.Location = new System.Drawing.Point(71, 6);
             this.dexterityStat.Name = "dexterityStat";
-            this.dexterityStat.Size = new System.Drawing.Size(59, 20);
+            this.dexterityStat.Size = new System.Drawing.Size(56, 20);
             this.dexterityStat.TabIndex = 1;
             this.dexterityStat.Text = "10";
             this.dexterityStat.TextChanged += new System.EventHandler(this.dexterityStat_TextChanged);
             // 
             // constitutionStat
             // 
-            this.constitutionStat.Location = new System.Drawing.Point(136, 4);
+            this.constitutionStat.Location = new System.Drawing.Point(136, 6);
             this.constitutionStat.Name = "constitutionStat";
-            this.constitutionStat.Size = new System.Drawing.Size(59, 20);
+            this.constitutionStat.Size = new System.Drawing.Size(56, 20);
             this.constitutionStat.TabIndex = 2;
             this.constitutionStat.Text = "10";
             this.constitutionStat.TextChanged += new System.EventHandler(this.constitutionStat_TextChanged);
             // 
             // intelligenceStat
             // 
-            this.intelligenceStat.Location = new System.Drawing.Point(202, 4);
+            this.intelligenceStat.Location = new System.Drawing.Point(201, 6);
             this.intelligenceStat.Name = "intelligenceStat";
-            this.intelligenceStat.Size = new System.Drawing.Size(59, 20);
+            this.intelligenceStat.Size = new System.Drawing.Size(56, 20);
             this.intelligenceStat.TabIndex = 3;
             this.intelligenceStat.Text = "10";
             this.intelligenceStat.TextChanged += new System.EventHandler(this.intelligenceStat_TextChanged);
             // 
             // wisdomStat
             // 
-            this.wisdomStat.Location = new System.Drawing.Point(268, 4);
+            this.wisdomStat.Location = new System.Drawing.Point(266, 6);
             this.wisdomStat.Name = "wisdomStat";
-            this.wisdomStat.Size = new System.Drawing.Size(59, 20);
+            this.wisdomStat.Size = new System.Drawing.Size(56, 20);
             this.wisdomStat.TabIndex = 4;
             this.wisdomStat.Text = "10";
             this.wisdomStat.TextChanged += new System.EventHandler(this.wisdomStat_TextChanged);
             // 
             // charismaStat
             // 
-            this.charismaStat.Location = new System.Drawing.Point(334, 4);
+            this.charismaStat.Location = new System.Drawing.Point(331, 6);
             this.charismaStat.Name = "charismaStat";
             this.charismaStat.Size = new System.Drawing.Size(59, 20);
             this.charismaStat.TabIndex = 5;
             this.charismaStat.Text = "10";
             this.charismaStat.TextChanged += new System.EventHandler(this.charismaStat_TextChanged);
             // 
-            // strMod
-            // 
-            this.strMod.AutoSize = true;
-            this.strMod.Location = new System.Drawing.Point(4, 50);
-            this.strMod.Name = "strMod";
-            this.strMod.Size = new System.Drawing.Size(13, 13);
-            this.strMod.TabIndex = 6;
-            this.strMod.Text = "0";
-            // 
             // dexMod
             // 
             this.dexMod.AutoSize = true;
-            this.dexMod.Location = new System.Drawing.Point(70, 50);
+            this.dexMod.Location = new System.Drawing.Point(71, 32);
             this.dexMod.Name = "dexMod";
             this.dexMod.Size = new System.Drawing.Size(13, 13);
             this.dexMod.TabIndex = 7;
@@ -220,7 +225,7 @@ namespace DungeonsAndDragonsCreatureVariator
             // conMod
             // 
             this.conMod.AutoSize = true;
-            this.conMod.Location = new System.Drawing.Point(136, 50);
+            this.conMod.Location = new System.Drawing.Point(136, 32);
             this.conMod.Name = "conMod";
             this.conMod.Size = new System.Drawing.Size(13, 13);
             this.conMod.TabIndex = 8;
@@ -229,7 +234,7 @@ namespace DungeonsAndDragonsCreatureVariator
             // intMod
             // 
             this.intMod.AutoSize = true;
-            this.intMod.Location = new System.Drawing.Point(202, 50);
+            this.intMod.Location = new System.Drawing.Point(201, 32);
             this.intMod.Name = "intMod";
             this.intMod.Size = new System.Drawing.Size(13, 13);
             this.intMod.TabIndex = 9;
@@ -238,7 +243,7 @@ namespace DungeonsAndDragonsCreatureVariator
             // wisMod
             // 
             this.wisMod.AutoSize = true;
-            this.wisMod.Location = new System.Drawing.Point(268, 50);
+            this.wisMod.Location = new System.Drawing.Point(266, 32);
             this.wisMod.Name = "wisMod";
             this.wisMod.Size = new System.Drawing.Size(13, 13);
             this.wisMod.TabIndex = 10;
@@ -247,7 +252,7 @@ namespace DungeonsAndDragonsCreatureVariator
             // charMod
             // 
             this.charMod.AutoSize = true;
-            this.charMod.Location = new System.Drawing.Point(334, 50);
+            this.charMod.Location = new System.Drawing.Point(331, 32);
             this.charMod.Name = "charMod";
             this.charMod.Size = new System.Drawing.Size(13, 13);
             this.charMod.TabIndex = 11;
@@ -255,12 +260,21 @@ namespace DungeonsAndDragonsCreatureVariator
             // 
             // strengthStat
             // 
-            this.strengthStat.Location = new System.Drawing.Point(4, 4);
+            this.strengthStat.Location = new System.Drawing.Point(6, 6);
             this.strengthStat.Name = "strengthStat";
-            this.strengthStat.Size = new System.Drawing.Size(59, 20);
+            this.strengthStat.Size = new System.Drawing.Size(56, 20);
             this.strengthStat.TabIndex = 0;
             this.strengthStat.Text = "10";
             this.strengthStat.TextChanged += new System.EventHandler(this.strengthStat_TextChanged);
+            // 
+            // strMod
+            // 
+            this.strMod.AutoSize = true;
+            this.strMod.Location = new System.Drawing.Point(6, 32);
+            this.strMod.Name = "strMod";
+            this.strMod.Size = new System.Drawing.Size(13, 13);
+            this.strMod.TabIndex = 6;
+            this.strMod.Text = "0";
             // 
             // label7
             // 
@@ -324,11 +338,124 @@ namespace DungeonsAndDragonsCreatureVariator
             this.creatureName.TabIndex = 13;
             this.creatureName.Text = "Creature Name";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.acValue);
+            this.panel1.Controls.Add(this.ACLabel);
+            this.panel1.Location = new System.Drawing.Point(83, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(68, 57);
+            this.panel1.TabIndex = 15;
+            // 
+            // acValue
+            // 
+            this.acValue.AutoSize = true;
+            this.acValue.Location = new System.Drawing.Point(20, 25);
+            this.acValue.Name = "acValue";
+            this.acValue.Size = new System.Drawing.Size(19, 13);
+            this.acValue.TabIndex = 1;
+            this.acValue.Text = "10";
+            // 
+            // ACLabel
+            // 
+            this.ACLabel.AutoSize = true;
+            this.ACLabel.Location = new System.Drawing.Point(20, 0);
+            this.ACLabel.Name = "ACLabel";
+            this.ACLabel.Size = new System.Drawing.Size(21, 13);
+            this.ACLabel.TabIndex = 0;
+            this.ACLabel.Text = "AC";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.hitDice);
+            this.panel2.Controls.Add(this.healthValue);
+            this.panel2.Controls.Add(this.healthLabel);
+            this.panel2.Location = new System.Drawing.Point(412, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(68, 57);
+            this.panel2.TabIndex = 16;
+            // 
+            // hitDice
+            // 
+            this.hitDice.AutoSize = true;
+            this.hitDice.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.hitDice.Location = new System.Drawing.Point(11, 29);
+            this.hitDice.Name = "hitDice";
+            this.hitDice.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.hitDice.Size = new System.Drawing.Size(31, 13);
+            this.hitDice.TabIndex = 17;
+            this.hitDice.Text = "2d10";
+            // 
+            // healthValue
+            // 
+            this.healthValue.AutoSize = true;
+            this.healthValue.Location = new System.Drawing.Point(20, 16);
+            this.healthValue.Name = "healthValue";
+            this.healthValue.Size = new System.Drawing.Size(19, 13);
+            this.healthValue.TabIndex = 1;
+            this.healthValue.Text = "10";
+            // 
+            // healthLabel
+            // 
+            this.healthLabel.AutoSize = true;
+            this.healthLabel.Location = new System.Drawing.Point(20, 0);
+            this.healthLabel.Name = "healthLabel";
+            this.healthLabel.Size = new System.Drawing.Size(22, 13);
+            this.healthLabel.TabIndex = 0;
+            this.healthLabel.Text = "HP";
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.richTextBox1);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Location = new System.Drawing.Point(83, 160);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(470, 274);
+            this.panel3.TabIndex = 17;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.richTextBox1.Location = new System.Drawing.Point(-2, 16);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(470, 256);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(195, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Weapons";
+            // 
+            // createWeapon
+            // 
+            this.createWeapon.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.createWeapon.Location = new System.Drawing.Point(548, 3);
+            this.createWeapon.Name = "createWeapon";
+            this.createWeapon.Size = new System.Drawing.Size(117, 23);
+            this.createWeapon.TabIndex = 18;
+            this.createWeapon.Text = "Create Weapon";
+            this.createWeapon.UseVisualStyleBackColor = true;
+            this.createWeapon.Click += new System.EventHandler(this.createWeapon_Click);
+            // 
             // mainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1102, 612);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.creatureName);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -343,6 +470,12 @@ namespace DungeonsAndDragonsCreatureVariator
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,6 +509,17 @@ namespace DungeonsAndDragonsCreatureVariator
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox creatureName;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label acValue;
+        private System.Windows.Forms.Label ACLabel;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label healthValue;
+        private System.Windows.Forms.Label healthLabel;
+        private System.Windows.Forms.Label hitDice;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button createWeapon;
     }
 }
 
