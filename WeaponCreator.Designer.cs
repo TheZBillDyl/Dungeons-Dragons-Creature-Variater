@@ -39,6 +39,8 @@ namespace DungeonsAndDragonsCreatureVariator
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.modifierAmount = new System.Windows.Forms.NumericUpDown();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amtOfDie)).BeginInit();
@@ -136,6 +138,10 @@ namespace DungeonsAndDragonsCreatureVariator
             this.modifierAmount.TabIndex = 7;
             this.modifierAmount.ValueChanged += new System.EventHandler(this.modifierAmount_ValueChanged);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // WeaponCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,5 +179,7 @@ namespace DungeonsAndDragonsCreatureVariator
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown modifierAmount;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

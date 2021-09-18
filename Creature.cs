@@ -36,6 +36,7 @@ public class Weapon
 	public int DamageDie {  get; set; }
 	public int DamageDieAmount { get; set; }
 	public int Modifier {  get; set; }
+	public string FilePath {  get; set; }
 }
 
 public class Armor

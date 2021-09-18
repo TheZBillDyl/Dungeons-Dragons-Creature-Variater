@@ -29,13 +29,14 @@ namespace DungeonsAndDragonsCreatureVariator
         /// </summary>
         private void InitializeComponent()
         {
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.openCreatureDialog = new System.Windows.Forms.OpenFileDialog();
             this.openCreatureButton = new System.Windows.Forms.Button();
-            this.previousCreatureButton = new System.Windows.Forms.Button();
-            this.nextCreatureButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.creatureSaveDialog = new System.Windows.Forms.SaveFileDialog();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.createWeapon = new System.Windows.Forms.Button();
+            this.addWeapon = new System.Windows.Forms.Button();
+            this.removeButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dexterityStat = new System.Windows.Forms.TextBox();
             this.constitutionStat = new System.Windows.Forms.TextBox();
@@ -64,9 +65,11 @@ namespace DungeonsAndDragonsCreatureVariator
             this.healthValue = new System.Windows.Forms.Label();
             this.healthLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.weaponList = new System.Windows.Forms.TreeView();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.createWeapon = new System.Windows.Forms.Button();
+            this.weaponSaveDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openWeaponDialog = new System.Windows.Forms.OpenFileDialog();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -74,11 +77,11 @@ namespace DungeonsAndDragonsCreatureVariator
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // openFileDialog1
+            // openCreatureDialog
             // 
-            this.openFileDialog1.FileName = "openCreatureDialog";
-            this.openFileDialog1.Filter = "Creature files (*.xml)|*.xml |All files (*.*)|*.*";
-            this.openFileDialog1.Title = "Select an Excel file";
+            this.openCreatureDialog.FileName = "openCreatureDialog";
+            this.openCreatureDialog.Filter = "Creature files (*.xml)|*.xml |All files (*.*)|*.*";
+            this.openCreatureDialog.Title = "Select an Excel file";
             // 
             // openCreatureButton
             // 
@@ -90,26 +93,6 @@ namespace DungeonsAndDragonsCreatureVariator
             this.openCreatureButton.UseVisualStyleBackColor = true;
             this.openCreatureButton.Click += new System.EventHandler(this.openCreatureFile_Click);
             // 
-            // previousCreatureButton
-            // 
-            this.previousCreatureButton.Location = new System.Drawing.Point(671, 3);
-            this.previousCreatureButton.Name = "previousCreatureButton";
-            this.previousCreatureButton.Size = new System.Drawing.Size(75, 23);
-            this.previousCreatureButton.TabIndex = 2;
-            this.previousCreatureButton.Text = "Previous";
-            this.previousCreatureButton.UseVisualStyleBackColor = true;
-            this.previousCreatureButton.Click += new System.EventHandler(this.previousCreatureButton_Click);
-            // 
-            // nextCreatureButton
-            // 
-            this.nextCreatureButton.Location = new System.Drawing.Point(752, 3);
-            this.nextCreatureButton.Name = "nextCreatureButton";
-            this.nextCreatureButton.Size = new System.Drawing.Size(75, 23);
-            this.nextCreatureButton.TabIndex = 3;
-            this.nextCreatureButton.Text = "Next";
-            this.nextCreatureButton.UseVisualStyleBackColor = true;
-            this.nextCreatureButton.Click += new System.EventHandler(this.nextCreatureButton_Click);
-            // 
             // saveButton
             // 
             this.saveButton.Location = new System.Drawing.Point(833, 3);
@@ -120,23 +103,54 @@ namespace DungeonsAndDragonsCreatureVariator
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // saveFileDialog1
+            // creatureSaveDialog
             // 
-            this.saveFileDialog1.Filter = "Creature files (*.xml)|*.xml |All files (*.*)|*.*";
+            this.creatureSaveDialog.Filter = "Creature files (*.xml)|*.xml |All files (*.*)|*.*";
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.flowLayoutPanel1.Controls.Add(this.openCreatureButton);
             this.flowLayoutPanel1.Controls.Add(this.saveButton);
-            this.flowLayoutPanel1.Controls.Add(this.nextCreatureButton);
-            this.flowLayoutPanel1.Controls.Add(this.previousCreatureButton);
             this.flowLayoutPanel1.Controls.Add(this.createWeapon);
+            this.flowLayoutPanel1.Controls.Add(this.addWeapon);
+            this.flowLayoutPanel1.Controls.Add(this.removeButton);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 500);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1078, 100);
             this.flowLayoutPanel1.TabIndex = 5;
+            // 
+            // createWeapon
+            // 
+            this.createWeapon.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.createWeapon.Location = new System.Drawing.Point(710, 3);
+            this.createWeapon.Name = "createWeapon";
+            this.createWeapon.Size = new System.Drawing.Size(117, 23);
+            this.createWeapon.TabIndex = 18;
+            this.createWeapon.Text = "Create Weapon";
+            this.createWeapon.UseVisualStyleBackColor = true;
+            this.createWeapon.Click += new System.EventHandler(this.createWeapon_Click);
+            // 
+            // addWeapon
+            // 
+            this.addWeapon.Location = new System.Drawing.Point(599, 3);
+            this.addWeapon.Name = "addWeapon";
+            this.addWeapon.Size = new System.Drawing.Size(105, 23);
+            this.addWeapon.TabIndex = 2;
+            this.addWeapon.Text = "Add Weapon";
+            this.addWeapon.UseVisualStyleBackColor = true;
+            this.addWeapon.Click += new System.EventHandler(this.addWeapon_Click);
+            // 
+            // removeButton
+            // 
+            this.removeButton.Location = new System.Drawing.Point(474, 3);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(119, 23);
+            this.removeButton.TabIndex = 19;
+            this.removeButton.Text = "Remove Weapon";
+            this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -411,12 +425,21 @@ namespace DungeonsAndDragonsCreatureVariator
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.weaponList);
             this.panel3.Controls.Add(this.richTextBox1);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(83, 160);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(470, 274);
             this.panel3.TabIndex = 17;
+            // 
+            // weaponList
+            // 
+            this.weaponList.Location = new System.Drawing.Point(-2, 16);
+            this.weaponList.Name = "weaponList";
+            this.weaponList.Size = new System.Drawing.Size(470, 256);
+            this.weaponList.TabIndex = 18;
+            this.weaponList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.weaponList_AfterSelect);
             // 
             // richTextBox1
             // 
@@ -437,16 +460,9 @@ namespace DungeonsAndDragonsCreatureVariator
             this.label1.TabIndex = 0;
             this.label1.Text = "Weapons";
             // 
-            // createWeapon
+            // openWeaponDialog
             // 
-            this.createWeapon.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.createWeapon.Location = new System.Drawing.Point(548, 3);
-            this.createWeapon.Name = "createWeapon";
-            this.createWeapon.Size = new System.Drawing.Size(117, 23);
-            this.createWeapon.TabIndex = 18;
-            this.createWeapon.Text = "Create Weapon";
-            this.createWeapon.UseVisualStyleBackColor = true;
-            this.createWeapon.Click += new System.EventHandler(this.createWeapon_Click);
+            this.openWeaponDialog.FileName = "openWeaponDialog";
             // 
             // mainWindow
             // 
@@ -482,12 +498,10 @@ namespace DungeonsAndDragonsCreatureVariator
         }
 
         #endregion
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openCreatureDialog;
         private System.Windows.Forms.Button openCreatureButton;
-        private System.Windows.Forms.Button previousCreatureButton;
-        private System.Windows.Forms.Button nextCreatureButton;
         private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.SaveFileDialog creatureSaveDialog;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox dexterityStat;
@@ -520,6 +534,11 @@ namespace DungeonsAndDragonsCreatureVariator
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button createWeapon;
+        private System.Windows.Forms.Button addWeapon;
+        private System.Windows.Forms.TreeView weaponList;
+        private System.Windows.Forms.Button removeButton;
+        private System.Windows.Forms.SaveFileDialog weaponSaveDialog;
+        private System.Windows.Forms.OpenFileDialog openWeaponDialog;
     }
 }
 

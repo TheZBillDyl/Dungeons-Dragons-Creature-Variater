@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Weapon>
+  <Name>Spear</Name>
+  <FilePath>F:\MySoftwareRepos\DnDCreatureVariator\Weapons\Spear</FilePath>
+  <DamageDiceAmount>1</DamageDiceAmount>
+  <DamageDice>8</DamageDice>
+  <ExtraModifier>2</ExtraModifier>
+</Weapon>

@@ -15,7 +15,9 @@ namespace DungeonsAndDragonsCreatureVariator
 { 
     public partial class mainWindow : Form
     {
-
+        List<Weapon> weapons= new List<Weapon>();
+        bool removeWeapons = false;
+        Color backgroundColor = Color.Empty;
         public mainWindow()
         {
             InitializeComponent();
@@ -23,6 +25,8 @@ namespace DungeonsAndDragonsCreatureVariator
 
         private void LoadCreature(string fileName)
         {
+            weapons.Clear();
+            weaponList.Nodes.Clear();
             XmlDocument creatureFile = new XmlDocument();
             creatureFile.Load(fileName);
             XmlNode node = creatureFile.DocumentElement;
@@ -38,6 +42,15 @@ namespace DungeonsAndDragonsCreatureVariator
             intelligenceStat.Text = node.SelectSingleNode("Intelligence").InnerText;
             wisdomStat.Text = node.SelectSingleNode("Wisdom").InnerText;
             charismaStat.Text = node.SelectSingleNode("Charisma").InnerText;
+
+            WeaponCreator weaponCreator = new WeaponCreator();
+           
+            //Get Weapons
+            foreach (XmlNode weapon in node.SelectSingleNode("Weapons").ChildNodes)
+            {
+                Weapon wep = weaponCreator.LoadWeaponFromFilePath(weapon.FirstChild.InnerText);
+                AddWeapon(wep);
+            }
 
             //Have Modifiers get updated
             ChangeStatBox(strengthStat, strMod);
@@ -65,8 +78,19 @@ namespace DungeonsAndDragonsCreatureVariator
             xmlTextWriter.WriteElementString("Intelligence", intelligenceStat.Text);
             xmlTextWriter.WriteElementString("Wisdom", wisdomStat.Text);
             xmlTextWriter.WriteElementString("Charisma", charismaStat.Text);
-            xmlTextWriter.WriteEndElement();
+            
 
+            //Start saving Weapons
+            xmlTextWriter.WriteStartElement("Weapons");
+            
+            //Save each weapon in the Weapons list
+            foreach (var weapon in weapons)
+            {
+                xmlTextWriter.WriteElementString("FilePath", weapon.FilePath);
+            }
+
+            xmlTextWriter.WriteEndElement();
+            xmlTextWriter.WriteEndElement();
             xmlTextWriter.WriteEndDocument();
             xmlTextWriter.Flush();
             xmlTextWriter.Close();
@@ -74,29 +98,19 @@ namespace DungeonsAndDragonsCreatureVariator
 
         private void openCreatureFile_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openCreatureDialog.ShowDialog() == DialogResult.OK)
             {
                 //Read the creature file
-                LoadCreature(openFileDialog1.FileName);
+                LoadCreature(openCreatureDialog.FileName);
             }
 
         }
 
-        private void nextCreatureButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void previousCreatureButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if(creatureSaveDialog.ShowDialog() == DialogResult.OK)
             {
-                SaveCreature(saveFileDialog1.FileName);
+                SaveCreature(creatureSaveDialog.FileName);
             }
         }
 
@@ -157,6 +171,85 @@ namespace DungeonsAndDragonsCreatureVariator
         {
             WeaponCreator weaponCreator = new WeaponCreator();
             weaponCreator.Show();
+        }
+
+        private void addWeapon_Click(object sender, EventArgs e)
+        {
+            if (openWeaponDialog.ShowDialog() == DialogResult.OK)
+            {
+                //Read the creature file
+                AddWeapon(openWeaponDialog.FileName);
+            }
+        }
+
+        private void AddWeapon(string fileName)
+        {
+            XmlDocument weaponFile = new XmlDocument();
+            weaponFile.Load(fileName);
+            XmlNode node = weaponFile.DocumentElement;
+            Weapon weapon= new Weapon();
+
+            //Get Name of Weapon
+            weapon.Name = node.SelectSingleNode("Name").InnerText;
+
+            //Get Stats of Weapon
+            weapon.DamageDie = int.Parse(node.SelectSingleNode("DamageDice").InnerText);
+            weapon.DamageDieAmount = int.Parse(node.SelectSingleNode("DamageDiceAmount").InnerText);
+            weapon.Modifier = int.Parse(node.SelectSingleNode("ExtraModifier").InnerText);
+            weapon.FilePath = node.SelectSingleNode("FilePath").InnerText;
+            //Add the Weapon
+            AddWeapon(weapon);
+
+        }
+
+        private void AddWeapon(Weapon weapon)
+        {
+            //Add Weapon
+            if (weapon != null)
+                weapons.Add(weapon);
+            else
+                return;
+
+            //Display Weapon
+            weaponList.Nodes.Add(weapon.Name);
+        }
+
+        private void RemoveWeapon(Weapon weapon)
+        {
+            if (weapon != null)
+            {
+                weaponList.Nodes.RemoveByKey(weapon.Name);
+                weapons.Remove(weapon);
+            }
+            else
+                return;
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            //Check color
+            if(backgroundColor == Color.Empty)
+                backgroundColor = ActiveForm.BackColor;
+
+            //Do something with seperate window
+            removeWeapons = !removeWeapons;
+            if (removeWeapons)
+            {
+                removeButton.Text = "Click to Remove";
+                ActiveForm.BackColor = Color.Red;
+            }
+            else
+            {
+                ActiveForm.BackColor = backgroundColor;
+                removeButton.Text = "Remove Weapon";
+            }
+                
+        }
+
+        private void weaponList_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if(removeWeapons)
+                weaponList.Nodes.Remove(weaponList.SelectedNode);
         }
     }
 }
