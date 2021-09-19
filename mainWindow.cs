@@ -18,9 +18,11 @@ namespace DungeonsAndDragonsCreatureVariator
         List<Weapon> weapons= new List<Weapon>();
         bool removeWeapons = false;
         Color backgroundColor = Color.Empty;
+        Armor armor = new Armor();
         public mainWindow()
         {
             InitializeComponent();
+            UpdateHealth();
         }
 
         private void LoadCreature(string fileName)
@@ -42,6 +44,10 @@ namespace DungeonsAndDragonsCreatureVariator
             intelligenceStat.Text = node.SelectSingleNode("Intelligence").InnerText;
             wisdomStat.Text = node.SelectSingleNode("Wisdom").InnerText;
             charismaStat.Text = node.SelectSingleNode("Charisma").InnerText;
+            diceType.Text = node.SelectSingleNode("HitDice").InnerText;
+            diceAmount.Text = node.SelectSingleNode("HitDiceAmount").InnerText;
+            ChangeArmor(node.SelectSingleNode("Armor").InnerText);
+           
 
             WeaponCreator weaponCreator = new WeaponCreator();
            
@@ -59,6 +65,7 @@ namespace DungeonsAndDragonsCreatureVariator
             ChangeStatBox(intelligenceStat, intMod);
             ChangeStatBox(wisdomStat, wisMod);
             ChangeStatBox(charismaStat, charMod);
+            UpdateHealth();
         }
 
         private void SaveCreature(string fileName)
@@ -78,7 +85,10 @@ namespace DungeonsAndDragonsCreatureVariator
             xmlTextWriter.WriteElementString("Intelligence", intelligenceStat.Text);
             xmlTextWriter.WriteElementString("Wisdom", wisdomStat.Text);
             xmlTextWriter.WriteElementString("Charisma", charismaStat.Text);
-            
+            xmlTextWriter.WriteElementString("HitDice", diceType.Text);
+            xmlTextWriter.WriteElementString("HitDiceAmount", diceAmount.Text);
+            xmlTextWriter.WriteElementString("Armor", armor.FilePath);
+
 
             //Start saving Weapons
             xmlTextWriter.WriteStartElement("Weapons");
@@ -122,12 +132,13 @@ namespace DungeonsAndDragonsCreatureVariator
         private void dexterityStat_TextChanged(object sender, EventArgs e)
         {
             ChangeStatBox(dexterityStat, dexMod);
-            acValue.Text = (10 + int.Parse(dexMod.Text)).ToString();
+            CalculateAC();
         }
 
         private void constitutionStat_TextChanged(object sender, EventArgs e)
         {
             ChangeStatBox(constitutionStat, conMod);
+            UpdateHealth();
         }
 
         private void intelligenceStat_TextChanged(object sender, EventArgs e)
@@ -158,6 +169,20 @@ namespace DungeonsAndDragonsCreatureVariator
                 //Value was not accepted
                 box.Text = "";
             }
+        }
+
+        private void CalculateAC()
+        {
+            if(armor == null)
+                acValue.Text = (10 + int.Parse(dexMod.Text)).ToString();
+            else
+            {
+                int ac = armor.AC + int.Parse(dexMod.Text);
+                if(armor.MaxAC != 0 && ac > armor.MaxAC)
+                    ac = armor.MaxAC;
+                acValue.Text = ac.ToString();
+            }
+               
         }
 
         private void ChangeMod(Label label, int val)
@@ -250,6 +275,62 @@ namespace DungeonsAndDragonsCreatureVariator
         {
             if(removeWeapons)
                 weaponList.Nodes.Remove(weaponList.SelectedNode);
+        }
+
+        private void createArmorButton_Click(object sender, EventArgs e)
+        {
+            ArmorCreator armorCreator = new ArmorCreator();
+            armorCreator.Show();
+        }
+
+        private void changeArmorButton_Click(object sender, EventArgs e)
+        {
+            if (openArmorDialog.ShowDialog() == DialogResult.OK)
+            {
+                //Read the creature file
+                ChangeArmor(openArmorDialog.FileName);
+            }
+        }
+
+        private void UpdateArmorText()
+        {
+            armorLabel.Text = armor.Name;
+            CalculateAC();
+        }
+
+        private void ChangeArmor(string fileName)
+        {
+            XmlDocument armorFile = new XmlDocument();
+            armorFile.Load(fileName);
+            XmlNode node = armorFile.DocumentElement;
+
+            //Get Name of Weapon
+            armor.Name = node.SelectSingleNode("Name").InnerText;
+
+            //Get Stats of Weapon
+            armor.AC = int.Parse(node.SelectSingleNode("AC").InnerText);
+            armor.MaxAC = int.Parse(node.SelectSingleNode("MaxAC").InnerText);
+            armor.StealthDisadvantage = bool.Parse(node.SelectSingleNode("StealthDisAdv").InnerText);
+            armor.FilePath = node.SelectSingleNode("FilePath").InnerText;
+
+            //Update Text
+            UpdateArmorText();
+        }
+
+        private void UpdateHealth()
+        {
+            healthMod.Text = conMod.Text;
+            healthValue.Text = (((int)diceType.Value * (int)diceAmount.Value) + int.Parse(conMod.Text)).ToString();
+        }
+
+        private void diceAmount_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateHealth();
+        }
+
+        private void diceType_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateHealth();
         }
     }
 }

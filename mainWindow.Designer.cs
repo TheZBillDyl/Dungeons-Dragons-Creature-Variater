@@ -37,6 +37,8 @@ namespace DungeonsAndDragonsCreatureVariator
             this.createWeapon = new System.Windows.Forms.Button();
             this.addWeapon = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
+            this.changeArmorButton = new System.Windows.Forms.Button();
+            this.createArmorButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dexterityStat = new System.Windows.Forms.TextBox();
             this.constitutionStat = new System.Windows.Forms.TextBox();
@@ -61,20 +63,30 @@ namespace DungeonsAndDragonsCreatureVariator
             this.acValue = new System.Windows.Forms.Label();
             this.ACLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.hitDice = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.healthValue = new System.Windows.Forms.Label();
+            this.healthMod = new System.Windows.Forms.Label();
             this.healthLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.weaponList = new System.Windows.Forms.TreeView();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.weaponSaveDialog = new System.Windows.Forms.SaveFileDialog();
             this.openWeaponDialog = new System.Windows.Forms.OpenFileDialog();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.armorLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.openArmorDialog = new System.Windows.Forms.OpenFileDialog();
+            this.diceAmount = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.diceType = new System.Windows.Forms.NumericUpDown();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.diceAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diceType)).BeginInit();
             this.SuspendLayout();
             // 
             // openCreatureDialog
@@ -85,7 +97,7 @@ namespace DungeonsAndDragonsCreatureVariator
             // 
             // openCreatureButton
             // 
-            this.openCreatureButton.Location = new System.Drawing.Point(955, 3);
+            this.openCreatureButton.Location = new System.Drawing.Point(735, 3);
             this.openCreatureButton.Name = "openCreatureButton";
             this.openCreatureButton.Size = new System.Drawing.Size(116, 23);
             this.openCreatureButton.TabIndex = 0;
@@ -95,7 +107,7 @@ namespace DungeonsAndDragonsCreatureVariator
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(833, 3);
+            this.saveButton.Location = new System.Drawing.Point(613, 3);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(116, 23);
             this.saveButton.TabIndex = 4;
@@ -115,16 +127,18 @@ namespace DungeonsAndDragonsCreatureVariator
             this.flowLayoutPanel1.Controls.Add(this.createWeapon);
             this.flowLayoutPanel1.Controls.Add(this.addWeapon);
             this.flowLayoutPanel1.Controls.Add(this.removeButton);
+            this.flowLayoutPanel1.Controls.Add(this.changeArmorButton);
+            this.flowLayoutPanel1.Controls.Add(this.createArmorButton);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 500);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 454);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1078, 100);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(858, 38);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // createWeapon
             // 
             this.createWeapon.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.createWeapon.Location = new System.Drawing.Point(710, 3);
+            this.createWeapon.Location = new System.Drawing.Point(490, 3);
             this.createWeapon.Name = "createWeapon";
             this.createWeapon.Size = new System.Drawing.Size(117, 23);
             this.createWeapon.TabIndex = 18;
@@ -134,7 +148,7 @@ namespace DungeonsAndDragonsCreatureVariator
             // 
             // addWeapon
             // 
-            this.addWeapon.Location = new System.Drawing.Point(599, 3);
+            this.addWeapon.Location = new System.Drawing.Point(379, 3);
             this.addWeapon.Name = "addWeapon";
             this.addWeapon.Size = new System.Drawing.Size(105, 23);
             this.addWeapon.TabIndex = 2;
@@ -144,13 +158,33 @@ namespace DungeonsAndDragonsCreatureVariator
             // 
             // removeButton
             // 
-            this.removeButton.Location = new System.Drawing.Point(474, 3);
+            this.removeButton.Location = new System.Drawing.Point(254, 3);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(119, 23);
             this.removeButton.TabIndex = 19;
             this.removeButton.Text = "Remove Weapon";
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            // 
+            // changeArmorButton
+            // 
+            this.changeArmorButton.Location = new System.Drawing.Point(134, 3);
+            this.changeArmorButton.Name = "changeArmorButton";
+            this.changeArmorButton.Size = new System.Drawing.Size(114, 23);
+            this.changeArmorButton.TabIndex = 20;
+            this.changeArmorButton.Text = "Change Armor";
+            this.changeArmorButton.UseVisualStyleBackColor = true;
+            this.changeArmorButton.Click += new System.EventHandler(this.changeArmorButton_Click);
+            // 
+            // createArmorButton
+            // 
+            this.createArmorButton.Location = new System.Drawing.Point(10, 3);
+            this.createArmorButton.Name = "createArmorButton";
+            this.createArmorButton.Size = new System.Drawing.Size(118, 23);
+            this.createArmorButton.TabIndex = 21;
+            this.createArmorButton.Text = "Create Armor";
+            this.createArmorButton.UseVisualStyleBackColor = true;
+            this.createArmorButton.Click += new System.EventHandler(this.createArmorButton_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -354,7 +388,7 @@ namespace DungeonsAndDragonsCreatureVariator
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.acValue);
             this.panel1.Controls.Add(this.ACLabel);
@@ -383,40 +417,52 @@ namespace DungeonsAndDragonsCreatureVariator
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.hitDice);
+            this.panel2.Controls.Add(this.diceType);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.diceAmount);
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.healthValue);
+            this.panel2.Controls.Add(this.healthMod);
             this.panel2.Controls.Add(this.healthLabel);
             this.panel2.Location = new System.Drawing.Point(412, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(68, 57);
+            this.panel2.Size = new System.Drawing.Size(191, 57);
             this.panel2.TabIndex = 16;
             // 
-            // hitDice
+            // label3
             // 
-            this.hitDice.AutoSize = true;
-            this.hitDice.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.hitDice.Location = new System.Drawing.Point(11, 29);
-            this.hitDice.Name = "hitDice";
-            this.hitDice.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.hitDice.Size = new System.Drawing.Size(31, 13);
-            this.hitDice.TabIndex = 17;
-            this.hitDice.Text = "2d10";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(146, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(13, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "+";
             // 
             // healthValue
             // 
             this.healthValue.AutoSize = true;
-            this.healthValue.Location = new System.Drawing.Point(20, 16);
+            this.healthValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.healthValue.Location = new System.Drawing.Point(41, 25);
             this.healthValue.Name = "healthValue";
-            this.healthValue.Size = new System.Drawing.Size(19, 13);
-            this.healthValue.TabIndex = 1;
-            this.healthValue.Text = "10";
+            this.healthValue.Size = new System.Drawing.Size(27, 20);
+            this.healthValue.TabIndex = 18;
+            this.healthValue.Text = "99";
+            // 
+            // healthMod
+            // 
+            this.healthMod.AutoSize = true;
+            this.healthMod.Location = new System.Drawing.Point(165, 3);
+            this.healthMod.Name = "healthMod";
+            this.healthMod.Size = new System.Drawing.Size(19, 13);
+            this.healthMod.TabIndex = 1;
+            this.healthMod.Text = "10";
             // 
             // healthLabel
             // 
             this.healthLabel.AutoSize = true;
-            this.healthLabel.Location = new System.Drawing.Point(20, 0);
+            this.healthLabel.Location = new System.Drawing.Point(3, 3);
             this.healthLabel.Name = "healthLabel";
             this.healthLabel.Size = new System.Drawing.Size(22, 13);
             this.healthLabel.TabIndex = 0;
@@ -426,35 +472,25 @@ namespace DungeonsAndDragonsCreatureVariator
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.weaponList);
-            this.panel3.Controls.Add(this.richTextBox1);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(83, 160);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(470, 274);
+            this.panel3.Size = new System.Drawing.Size(195, 274);
             this.panel3.TabIndex = 17;
             // 
             // weaponList
             // 
+            this.weaponList.BackColor = System.Drawing.SystemColors.Control;
             this.weaponList.Location = new System.Drawing.Point(-2, 16);
             this.weaponList.Name = "weaponList";
-            this.weaponList.Size = new System.Drawing.Size(470, 256);
+            this.weaponList.Size = new System.Drawing.Size(195, 256);
             this.weaponList.TabIndex = 18;
             this.weaponList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.weaponList_AfterSelect);
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.richTextBox1.Location = new System.Drawing.Point(-2, 16);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(470, 256);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(195, 0);
+            this.label1.Location = new System.Drawing.Point(7, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 0;
@@ -464,11 +500,66 @@ namespace DungeonsAndDragonsCreatureVariator
             // 
             this.openWeaponDialog.FileName = "openWeaponDialog";
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.Control;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.armorLabel);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Location = new System.Drawing.Point(287, 160);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(195, 58);
+            this.panel4.TabIndex = 19;
+            // 
+            // armorLabel
+            // 
+            this.armorLabel.AutoSize = true;
+            this.armorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.armorLabel.Location = new System.Drawing.Point(41, 16);
+            this.armorLabel.Name = "armorLabel";
+            this.armorLabel.Size = new System.Drawing.Size(0, 20);
+            this.armorLabel.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Armor";
+            // 
+            // diceAmount
+            // 
+            this.diceAmount.Location = new System.Drawing.Point(43, 1);
+            this.diceAmount.Name = "diceAmount";
+            this.diceAmount.Size = new System.Drawing.Size(41, 20);
+            this.diceAmount.TabIndex = 20;
+            this.diceAmount.ValueChanged += new System.EventHandler(this.diceAmount_ValueChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(87, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(15, 13);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "D";
+            // 
+            // diceType
+            // 
+            this.diceType.Location = new System.Drawing.Point(103, 1);
+            this.diceType.Name = "diceType";
+            this.diceType.Size = new System.Drawing.Size(37, 20);
+            this.diceType.TabIndex = 22;
+            this.diceType.ValueChanged += new System.EventHandler(this.diceType_ValueChanged);
+            // 
             // mainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 612);
+            this.ClientSize = new System.Drawing.Size(877, 497);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -492,6 +583,10 @@ namespace DungeonsAndDragonsCreatureVariator
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.diceAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diceType)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -527,11 +622,9 @@ namespace DungeonsAndDragonsCreatureVariator
         private System.Windows.Forms.Label acValue;
         private System.Windows.Forms.Label ACLabel;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label healthValue;
+        private System.Windows.Forms.Label healthMod;
         private System.Windows.Forms.Label healthLabel;
-        private System.Windows.Forms.Label hitDice;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button createWeapon;
         private System.Windows.Forms.Button addWeapon;
@@ -539,6 +632,17 @@ namespace DungeonsAndDragonsCreatureVariator
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.SaveFileDialog weaponSaveDialog;
         private System.Windows.Forms.OpenFileDialog openWeaponDialog;
+        private System.Windows.Forms.Button changeArmorButton;
+        private System.Windows.Forms.Button createArmorButton;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label armorLabel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.OpenFileDialog openArmorDialog;
+        private System.Windows.Forms.Label healthValue;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown diceType;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown diceAmount;
     }
 }
 

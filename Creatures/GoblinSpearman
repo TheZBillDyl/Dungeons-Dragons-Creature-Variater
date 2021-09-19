@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Creature>
+  <Name>Goblin Spearman</Name>
+  <Strength>9</Strength>
+  <Dexterity>12</Dexterity>
+  <Constitution>14</Constitution>
+  <Intelligence>8</Intelligence>
+  <Wisdom>12</Wisdom>
+  <Charisma>9</Charisma>
+  <HitDice>6</HitDice>
+  <HitDiceAmount>2</HitDiceAmount>
+  <Armor>F:\MySoftwareRepos\DnDCreatureVariator\Armor\leatherArmor</Armor>
+  <Weapons>
+    <FilePath>F:\MySoftwareRepos\DnDCreatureVariator\Weapons\Spear</FilePath>
+  </Weapons>
+</Creature>

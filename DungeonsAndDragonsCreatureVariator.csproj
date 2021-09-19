@@ -48,12 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Creature.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="ArmorCreator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ArmorCreator.Designer.cs">
+      <DependentUpon>ArmorCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Creature.cs" />
+    <Compile Include="mainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainWindow.Designer.cs">
+      <DependentUpon>mainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,8 +69,11 @@
     <Compile Include="WeaponCreator.Designer.cs">
       <DependentUpon>WeaponCreator.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ArmorCreator.resx">
+      <DependentUpon>ArmorCreator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainWindow.resx">
+      <DependentUpon>mainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

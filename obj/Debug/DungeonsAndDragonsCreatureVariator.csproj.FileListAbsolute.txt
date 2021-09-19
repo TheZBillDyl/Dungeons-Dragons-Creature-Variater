@@ -20,3 +20,4 @@ F:\MySoftwareRepos\DnDCreatureVariator\obj\Debug\DungeonsAndDragonsCreatureVaria
 F:\MySoftwareRepos\DnDCreatureVariator\obj\Debug\DungeonsAndDragonsCreatureVariator.csproj.ResolveComReference.cache
 F:\MySoftwareRepos\DnDCreatureVariator\obj\Debug\DungeonsAndDragonsCreatureVariator.mainWindow.resources
 F:\MySoftwareRepos\DnDCreatureVariator\obj\Debug\DungeonsAndDragonsCreatureVariator.WeaponCreator.resources
+F:\MySoftwareRepos\DnDCreatureVariator\obj\Debug\DungeonsAndDragonsCreatureVariator.ArmorCreator.resources

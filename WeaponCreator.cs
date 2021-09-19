@@ -89,6 +89,7 @@ namespace DungeonsAndDragonsCreatureVariator
             weapon.DamageDieAmount = int.Parse(node.SelectSingleNode("DamageDiceAmount").InnerText);
             weapon.Modifier = int.Parse(node.SelectSingleNode("ExtraModifier").InnerText);
             weapon.FilePath = node.SelectSingleNode("FilePath").InnerText;
+            
             //Have Modifiers get updated
             weaponName.Text = weapon.Name;
             typeOfDie.Value = weapon.DamageDie;

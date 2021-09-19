@@ -45,4 +45,13 @@ public class Armor
 	public int AC {  get; set; }
 	public int MaxAC {  get; set; }
 	public bool StealthDisadvantage {  get; set; }
+	public string FilePath {  get; set; }
+
+    public Armor()
+    {
+		Name = "Armor";
+		AC = 10;
+		MaxAC = 0;
+		StealthDisadvantage = false;
+    }
 }

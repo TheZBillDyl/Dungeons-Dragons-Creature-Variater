@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Armor>
+  <Name>Leather Armor</Name>
+  <FilePath>F:\MySoftwareRepos\DnDCreatureVariator\Armor\leatherArmor</FilePath>
+  <AC>11</AC>
+  <MaxAC>13</MaxAC>
+  <StealthDisAdv>False</StealthDisAdv>
+</Armor>

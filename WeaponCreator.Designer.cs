@@ -52,14 +52,14 @@ namespace DungeonsAndDragonsCreatureVariator
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.weaponName);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(801, 46);
+            this.panel1.Size = new System.Drawing.Size(314, 46);
             this.panel1.TabIndex = 0;
             // 
             // weaponName
             // 
-            this.weaponName.Location = new System.Drawing.Point(295, 10);
+            this.weaponName.Location = new System.Drawing.Point(77, 10);
             this.weaponName.Name = "weaponName";
             this.weaponName.Size = new System.Drawing.Size(164, 20);
             this.weaponName.TabIndex = 0;
@@ -81,9 +81,9 @@ namespace DungeonsAndDragonsCreatureVariator
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.flowLayoutPanel1.Controls.Add(this.saveButton);
             this.flowLayoutPanel1.Controls.Add(this.loadButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 381);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 204);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(776, 57);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(314, 57);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // loadButton
@@ -98,7 +98,7 @@ namespace DungeonsAndDragonsCreatureVariator
             // 
             // amtOfDie
             // 
-            this.amtOfDie.Location = new System.Drawing.Point(255, 124);
+            this.amtOfDie.Location = new System.Drawing.Point(56, 116);
             this.amtOfDie.Name = "amtOfDie";
             this.amtOfDie.Size = new System.Drawing.Size(47, 20);
             this.amtOfDie.TabIndex = 3;
@@ -106,7 +106,7 @@ namespace DungeonsAndDragonsCreatureVariator
             // 
             // typeOfDie
             // 
-            this.typeOfDie.Location = new System.Drawing.Point(332, 124);
+            this.typeOfDie.Location = new System.Drawing.Point(133, 116);
             this.typeOfDie.Name = "typeOfDie";
             this.typeOfDie.Size = new System.Drawing.Size(47, 20);
             this.typeOfDie.TabIndex = 4;
@@ -115,7 +115,7 @@ namespace DungeonsAndDragonsCreatureVariator
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(311, 126);
+            this.label1.Location = new System.Drawing.Point(112, 118);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(15, 13);
             this.label1.TabIndex = 5;
@@ -124,7 +124,7 @@ namespace DungeonsAndDragonsCreatureVariator
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(385, 126);
+            this.label2.Location = new System.Drawing.Point(186, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(13, 13);
             this.label2.TabIndex = 6;
@@ -132,7 +132,7 @@ namespace DungeonsAndDragonsCreatureVariator
             // 
             // modifierAmount
             // 
-            this.modifierAmount.Location = new System.Drawing.Point(404, 124);
+            this.modifierAmount.Location = new System.Drawing.Point(205, 116);
             this.modifierAmount.Name = "modifierAmount";
             this.modifierAmount.Size = new System.Drawing.Size(57, 20);
             this.modifierAmount.TabIndex = 7;
@@ -146,7 +146,7 @@ namespace DungeonsAndDragonsCreatureVariator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(336, 271);
             this.Controls.Add(this.modifierAmount);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
